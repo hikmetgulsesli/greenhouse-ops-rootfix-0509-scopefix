@@ -6,8 +6,8 @@ type ScreenCallback = {
 }["bivarianceHack"];
 
 export interface TaskBoardProps {
-  onClose?: () =>> void;
-  onBack?: () =>> void;
+  onClose?: () => void;
+  onBack?: () => void;
   onNavigate?: ScreenCallback;
   onAction?: ScreenCallback;
   state?: AppState;
@@ -38,7 +38,7 @@ function initials(name: string | null): string {
   if (!name) return "--";
   return name
     .split(" ")
-    .map((n) =>> n[0])
+    .map((n) => n[0])
     .join("")
     .slice(0, 2)
     .toUpperCase();

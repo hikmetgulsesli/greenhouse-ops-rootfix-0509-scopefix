@@ -81,8 +81,9 @@ export function EquipmentStatus(props: EquipmentStatusProps = {}) {
             <p className="text-on-surface-variant mb-6">Monitor health and maintenance schedules for all operational units.</p>
             <div className="flex flex-col sm:flex-row gap-4 bg-surface-container-low p-4 rounded-xl border border-outline-variant/50">
               <div className="flex-1">
-                <label className="block text-sm font-medium text-on-surface-variant mb-1">Equipment Type</label>
+                <label htmlFor="eq-type" className="block text-sm font-medium text-on-surface-variant mb-1">Equipment Type</label>
                 <select
+                  id="eq-type"
                   className="w-full bg-surface border border-outline-variant text-on-surface rounded-lg focus:ring-2 focus:ring-primary focus:border-primary block p-2.5 cursor-pointer"
                   value={typeFilter}
                   onChange={(e) => setTypeFilter(e.target.value as EquipmentType | "all")}
@@ -96,8 +97,9 @@ export function EquipmentStatus(props: EquipmentStatusProps = {}) {
                 </select>
               </div>
               <div className="flex-1">
-                <label className="block text-sm font-medium text-on-surface-variant mb-1">Health Status</label>
+                <label htmlFor="eq-health" className="block text-sm font-medium text-on-surface-variant mb-1">Health Status</label>
                 <select
+                  id="eq-health"
                   className="w-full bg-surface border border-outline-variant text-on-surface rounded-lg focus:ring-2 focus:ring-primary focus:border-primary block p-2.5 cursor-pointer"
                   value={healthFilter}
                   onChange={(e) => setHealthFilter(e.target.value as "all" | "critical" | "warning" | "optimal")}
@@ -109,8 +111,9 @@ export function EquipmentStatus(props: EquipmentStatusProps = {}) {
                 </select>
               </div>
               <div className="flex-1">
-                <label className="block text-sm font-medium text-on-surface-variant mb-1">Operational State</label>
+                <label htmlFor="eq-state" className="block text-sm font-medium text-on-surface-variant mb-1">Operational State</label>
                 <select
+                  id="eq-state"
                   className="w-full bg-surface border border-outline-variant text-on-surface rounded-lg focus:ring-2 focus:ring-primary focus:border-primary block p-2.5 cursor-pointer"
                   value={stateFilter}
                   onChange={(e) => setStateFilter(e.target.value as EquipmentState | "all")}

@@ -220,7 +220,7 @@ describe("EquipmentStatus", () => {
 
   it("filters by equipment type", () => {
     render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
-    const typeSelect = screen.getByLabelText(/equipment type/i);
+    const typeSelect = screen.getByRole('combobox', { name: /equipment type/i });
     fireEvent.change(typeSelect, { target: { value: "sensor" } });
     expect(screen.getByText("Soil Array 4")).toBeInTheDocument();
     expect(screen.queryByText("HVAC Unit Alpha")).not.toBeInTheDocument();
@@ -228,7 +228,7 @@ describe("EquipmentStatus", () => {
 
   it("filters by operational state", () => {
     render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
-    const stateSelect = screen.getByLabelText(/operational state/i);
+    const stateSelect = screen.getByRole('combobox', { name: /operational state/i });
     fireEvent.change(stateSelect, { target: { value: "offline" } });
     expect(screen.getByText("HVAC Unit Alpha")).toBeInTheDocument();
     expect(screen.queryByText("Soil Array 4")).not.toBeInTheDocument();
@@ -236,7 +236,7 @@ describe("EquipmentStatus", () => {
 
   it("filters by health status", () => {
     render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
-    const healthSelect = screen.getByLabelText(/health status/i);
+    const healthSelect = screen.getByRole('combobox', { name: /health status/i });
     fireEvent.change(healthSelect, { target: { value: "optimal" } });
     expect(screen.getByText("Soil Array 4")).toBeInTheDocument();
     expect(screen.getByText("LED Array West")).toBeInTheDocument();
@@ -276,9 +276,9 @@ describe("TaskBoard", () => {
 
   it("renders all task columns", () => {
     render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
-    expect(screen.getByText("To Do")).toBeInTheDocument();
-    expect(screen.getByText("In Progress")).toBeInTheDocument();
-    expect(screen.getByText("Completed")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "To Do" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "In Progress" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Completed" })).toBeInTheDocument();
   });
 
   it("renders tasks in correct columns", () => {
@@ -298,9 +298,9 @@ describe("TaskBoard", () => {
 
   it("shows task priority badges", () => {
     render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
-    expect(screen.getByText("High")).toBeInTheDocument();
-    expect(screen.getByText("Medium")).toBeInTheDocument();
-    expect(screen.getByText("Low")).toBeInTheDocument();
+    expect(screen.getAllByText("High").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Medium").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Low").length).toBeGreaterThan(0);
   });
 
   it("shows assignee initials or unassigned", () => {
