@@ -1,0 +1,41 @@
+# greenhouse-ops-rootfix-0509-scopefix PRD
+
+## Overview
+greenhouse-ops-rootfix-0509-scopefix turns the user's request into a directly usable application. The first screen is not a landing page; it is the real workflow surface where the user can inspect data, take actions, and recover from empty or error states. User-facing copy language: English.
+
+## Goals
+- Provide a working first-load experience with populated, empty, loading, and error states.
+- Ensure every visible button and icon button triggers a real route, state change, panel, modal, or form behavior.
+- Avoid text overflow, incoherent overlap, dead controls, and broken back navigation on mobile and desktop.
+- Persist data through localStorage or the chosen data layer with visible error, retry, and reset behavior.
+- Expose deterministic state so smoke, final-test, and deploy gates can verify the application surface.
+
+## Technical Decisions
+- Framework: React 18 + Vite + TypeScript.
+- Styling: Tailwind CSS.
+- Icons: Lucide React.
+
+## Functional Requirements
+- R1: Build a browser-based greenhouse maintenance operations console in React/Vite/TypeScript. Include task board, equipment status, maintenance log, filters, localStorage persistence, and a clean operational dashboard UI.
+- Forms provide required-field validation and visible error messages.
+- Filtering, search, create, edit, delete, profile, settings, retry, and clear actions produce visible state changes.
+
+## Data Model
+- Entity fields: id, createdAt, updatedAt, status, health, notes, name, type.
+
+## UI/UX Requirements
+- Aesthetic: corporate/minimal, quiet, scannable.
+- Palette: Dark theme (Primary #2563EB, Background #0F172A).
+- Typography: Inter/System Sans.
+- Components: 8px radius, 44x44px touch targets.
+
+## Screens
+1. Task Board: Operational board with grouped work items.
+2. Equipment Status: Equipment health indicators and maintenance needs.
+3. Maintenance Log: Chronological activity with filters.
+4. Filtered Overview: Searchable status filters.
+5. Storage Error State: Persistence failure with retry.
+6. Operational Dashboard: Primary overview with summary cards.
+7. Empty State: No-data guidance.
+8. Settings: Application and profile configuration.
+9. Profile Panel: User account details and back behavior.

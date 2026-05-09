@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "inverse-surface": "#e1e2ed",
+                        "on-error": "#690005",
+                        "outline-variant": "#434655",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "on-background": "#e1e2ed",
+                        "on-primary-container": "#eeefff",
+                        "surface-container": "#1d1f27",
+                        "inverse-primary": "#0053db",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-bright": "#373942",
+                        "secondary-fixed": "#d5e3fc",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-dim": "#11131b",
+                        "secondary-container": "#3c4a5e",
+                        "on-primary": "#002a78",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "tertiary": "#ffb596",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-high": "#282a32",
+                        "secondary": "#b9c7df",
+                        "surface-container-highest": "#32343d",
+                        "surface-container-lowest": "#0c0e16",
+                        "on-tertiary-container": "#ffede6",
+                        "background": "#11131b",
+                        "error-container": "#93000a",
+                        "on-secondary": "#233144",
+                        "surface-tint": "#b4c5ff",
+                        "on-surface-variant": "#c3c6d7",
+                        "on-tertiary": "#581e00",
+                        "on-surface": "#e1e2ed",
+                        "surface-container-low": "#191b23",
+                        "surface-variant": "#32343d",
+                        "outline": "#8d90a0",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#abb9d1",
+                        "inverse-on-surface": "#2e3039",
+                        "on-tertiary-fixed": "#360f00",
+                        "primary-container": "#2563eb",
+                        "tertiary-container": "#bc4800",
+                        "primary": "#b4c5ff",
+                        "surface": "#11131b",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen antialiased overflow-hidden">
+<!-- Background Canvas (Simulated Main Content) -->
+<main class="p-8 grid grid-cols-12 gap-6 opacity-30">
+<div class="col-span-12 md:col-span-8 bg-surface-container rounded-lg border border-outline-variant h-96"></div>
+<div class="col-span-12 md:col-span-4 bg-surface-container rounded-lg border border-outline-variant h-96"></div>
+</main>
+<!-- Overlay -->
+<div class="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 transition-opacity"></div>
+<!-- Navigation Drawer (Shared Component) -->
+<aside class="fixed right-0 top-0 h-full w-80 z-50 bg-surface-container-high border-l border-outline-variant shadow-2xl translate-x-0 transition-transform duration-300 ease-in-out flex flex-col p-4 space-y-2">
+<!-- Header Section -->
+<div class="flex items-start justify-between mb-6 pb-6 border-b border-outline-variant/50 pt-2 px-2">
+<div class="flex flex-col gap-4">
+<div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-outline-variant bg-surface-container-highest">
+<img alt="Operator Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a male greenhouse operations manager in a dark, tech-focused setting. The lighting is dramatic and moody, emphasizing a serious, focused expression. The color palette is composed of deep navies and cool slate greys, matching a high-end industrial UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe89l06JFozwHV-N110hD02dGFFFJij5DEGmHWdLln_dKxLHYilItdD5ATK9hNR0govPEYKf4tQ0-nIsBSz4gEuEemq7Rp_hs3chxg8VMhGmiNxTP6LDfD4Maf9E3gVNG1HgDVjbqKikoBTZ3F_wff8Cp-2A-rb_HZwI-JWpLry6HvZp_xfm04PsLppYNPlYuZVlZR1MEUckQgTCFcQPw1Jth0oWRUqkh-QZvwbeQyVs0BlQ08oV1JXWnajUMrOMg0hi-1zv6iKY6x"/>
+</div>
+<div>
+<h2 class="text-headline-sm font-bold text-on-surface tracking-tight">Account Settings</h2>
+<p class="text-on-surface-variant text-sm mt-1">Operator ID: GH-882</p>
+<p class="text-on-surface-variant text-sm text-opacity-80">gh-882@ecogrow.ops</p>
+</div>
+</div>
+<button aria-label="Close panel" class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high">
+<span class="material-symbols-outlined block">close</span>
+</button>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex-1 flex flex-col space-y-1 font-body text-body-md text-primary">
+<!-- Active Tab: Profile -->
+<a class="flex items-center gap-4 py-3 px-4 bg-primary-container text-on-primary-container rounded-lg mx-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+                Profile
+            </a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high" href="#">
+<span class="material-symbols-outlined">security</span>
+                Security
+            </a>
+<a class="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high" href="#">
+<span class="material-symbols-outlined">tune</span>
+                Preferences
+            </a>
+<a class="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high" href="#">
+<span class="material-symbols-outlined">notifications</span>
+                Notifications
+            </a>
+</nav>
+<!-- Footer Actions -->
+<div class="mt-auto pt-6 border-t border-outline-variant/50 px-2 pb-2">
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 text-error bg-error-container/10 border border-error/20 hover:bg-error-container/20 rounded-lg transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-error focus:ring-offset-2 focus:ring-offset-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                Logout
+            </button>
+</div>
+</aside>
+</body></html>

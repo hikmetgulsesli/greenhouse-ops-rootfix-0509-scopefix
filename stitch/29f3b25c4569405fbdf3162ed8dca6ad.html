@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Storage Error State</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "inverse-surface": "#e1e2ed",
+                    "on-error": "#690005",
+                    "outline-variant": "#434655",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "on-background": "#e1e2ed",
+                    "on-primary-container": "#eeefff",
+                    "surface-container": "#1d1f27",
+                    "inverse-primary": "#0053db",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-bright": "#373942",
+                    "secondary-fixed": "#d5e3fc",
+                    "tertiary-fixed": "#ffdbcd",
+                    "surface-dim": "#11131b",
+                    "secondary-container": "#3c4a5e",
+                    "on-primary": "#002a78",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "tertiary": "#ffb596",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-primary-fixed": "#00174b",
+                    "surface-container-high": "#282a32",
+                    "secondary": "#b9c7df",
+                    "surface-container-highest": "#32343d",
+                    "surface-container-lowest": "#0c0e16",
+                    "on-tertiary-container": "#ffede6",
+                    "background": "#11131b",
+                    "error-container": "#93000a",
+                    "on-secondary": "#233144",
+                    "surface-tint": "#b4c5ff",
+                    "on-surface-variant": "#c3c6d7",
+                    "on-tertiary": "#581e00",
+                    "on-surface": "#e1e2ed",
+                    "surface-container-low": "#191b23",
+                    "surface-variant": "#32343d",
+                    "outline": "#8d90a0",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#abb9d1",
+                    "inverse-on-surface": "#2e3039",
+                    "on-tertiary-fixed": "#360f00",
+                    "primary-container": "#2563eb",
+                    "tertiary-container": "#bc4800",
+                    "primary": "#b4c5ff",
+                    "surface": "#11131b",
+                    "primary-fixed": "#dbe1ff",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": [
+                            "Inter", "sans-serif"
+                    ],
+                    "display": [
+                            "Inter", "sans-serif"
+                    ],
+                    "body": [
+                            "Inter", "sans-serif"
+                    ],
+                    "label": [
+                            "Inter", "sans-serif"
+                    ]
+            },
+            "fontSize": {}
+        },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body h-screen w-full flex overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Shared Component) - Disabled State -->
+<nav class="h-screen w-[260px] fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant flex flex-col h-full overflow-y-auto opacity-40 pointer-events-none grayscale-[50%] z-50">
+<!-- Header -->
+<div class="px-6 py-5 border-b border-outline-variant flex items-center gap-3">
+<div class="w-8 h-8 rounded-DEFAULT bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container text-xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-xl font-headline font-bold text-on-surface tracking-tight leading-tight">EcoGrow Ops</h1>
+<span class="text-[11px] font-label text-on-surface-variant uppercase tracking-wider">System Console</span>
+</div>
+</div>
+<!-- CTA Area -->
+<div class="p-4">
+<button class="w-full bg-primary-container text-on-primary-container font-label text-sm font-semibold py-2.5 px-4 rounded-DEFAULT flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">add</span>
+                New Maintenance Task
+            </button>
+</div>
+<!-- Primary Navigation -->
+<div class="flex-1 flex flex-col gap-1 px-3 mt-2">
+<a class="text-on-surface-variant hover:text-on-surface py-3 px-4 transition-colors font-body text-label-md antialiased flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface py-3 px-4 transition-colors font-body text-label-md antialiased flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+                Task Board
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface py-3 px-4 transition-colors font-body text-label-md antialiased flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+                Equipment
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface py-3 px-4 transition-colors font-body text-label-md antialiased flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">database</span>
+                Logs
+            </a>
+</div>
+<!-- Footer Navigation -->
+<div class="p-3 border-t border-outline-variant flex flex-col gap-1">
+<a class="text-on-surface-variant hover:text-on-surface py-2.5 px-4 transition-colors font-body text-label-md antialiased flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Support
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface py-2.5 px-4 transition-colors font-body text-label-md antialiased flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Settings
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[260px] flex-1 flex flex-col h-screen overflow-hidden relative">
+<!-- TopAppBar (Shared Component) - Muted -->
+<header class="bg-background/95 backdrop-blur-md docked full-width top-0 sticky z-40 border-b border-outline-variant flex justify-between items-center h-16 px-6 opacity-40 pointer-events-none transition-opacity">
+<!-- Left: Brand (Hidden per JSON, but keeping structure for layout balance if needed, or just leaving empty) -->
+<div class="flex-1"></div>
+<!-- Right: Search & Actions -->
+<div class="flex items-center gap-4">
+<!-- Search (on_right) -->
+<div class="relative hidden lg:flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-high border-none rounded-full py-1.5 pl-9 pr-4 text-sm text-on-surface placeholder-on-surface-variant focus:ring-0 w-48" disabled="" placeholder="Search..." type="text"/>
+</div>
+<!-- Trailing Icons -->
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Error Canvas Container -->
+<div class="flex-1 relative flex flex-col items-center justify-center p-8 bg-background">
+<!-- Dramatic Error Background Glow -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+<div class="w-[600px] h-[600px] bg-error-container/10 blur-[120px] rounded-full mix-blend-screen"></div>
+</div>
+<!-- High-End Glassmorphism Error Card -->
+<div class="relative z-10 w-full max-w-lg bg-surface-container/60 backdrop-blur-xl border border-outline-variant/50 rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.5)] p-10 flex flex-col items-center text-center">
+<!-- Icon Container -->
+<div class="relative mb-8">
+<!-- Pulsing rings -->
+<div class="absolute inset-0 bg-error-container/30 rounded-full animate-ping opacity-75"></div>
+<div class="relative w-24 h-24 bg-surface-container-highest border border-error-container rounded-full flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[48px] text-error" style="font-variation-settings: 'FILL' 1;">cloud_off</span>
+<!-- Secondary sub-icon for storage -->
+<div class="absolute -bottom-2 -right-2 w-10 h-10 bg-error-container rounded-full border-[3px] border-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-on-error-container" style="font-variation-settings: 'FILL' 1;">sd_storage</span>
+</div>
+</div>
+</div>
+<!-- Typography -->
+<h2 class="font-headline text-3xl font-bold text-on-surface tracking-tight mb-3">
+                    Data Sync Error
+                </h2>
+<p class="font-body text-base text-on-surface-variant leading-relaxed mb-10 max-w-sm">
+                    Local storage is full or unavailable. System metrics and operational logs cannot be persisted to disk.
+                </p>
+<!-- Actions Container -->
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center mt-auto">
+<!-- Secondary Action -->
+<button class="flex-1 flex items-center justify-center gap-2 px-6 py-3 border border-outline-variant rounded-DEFAULT text-on-surface font-label font-medium hover:bg-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background transition-all duration-200">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+                        Clear Storage
+                    </button>
+<!-- Primary Action -->
+<button class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary-container text-on-primary-container rounded-DEFAULT font-label font-bold hover:bg-primary hover:text-on-primary focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background shadow-lg shadow-primary-container/20 transition-all duration-200 group">
+<span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-500">sync</span>
+                        Retry Sync
+                    </button>
+</div>
+<!-- Terminal-style error code (Decorative/Functional Aesthetic) -->
+<div class="mt-8 pt-4 border-t border-outline-variant/30 w-full text-center">
+<span class="font-mono text-xs text-error/70 bg-error-container/10 px-2 py-1 rounded">ERR_QUOTA_EXCEEDED (0x80040111)</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>
