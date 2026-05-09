@@ -1,0 +1,83 @@
+[
+  {
+    "screenId": "0d9300fc7d9d489a8e7b19999bb95bf9",
+    "title": "Profile Panel",
+    "componentName": "ProfilePanel",
+    "file": "src/screens/ProfilePanel.tsx",
+    "buttons": 2,
+    "inputs": 0,
+    "links": 4
+  },
+  {
+    "screenId": "29f3b25c4569405fbdf3162ed8dca6ad",
+    "title": "Storage Error State",
+    "componentName": "StorageErrorState",
+    "file": "src/screens/StorageErrorState.tsx",
+    "buttons": 5,
+    "inputs": 1,
+    "links": 6
+  },
+  {
+    "screenId": "a182f948aefb4c1fac42fec2b66757a9",
+    "title": "Empty State",
+    "componentName": "EmptyState",
+    "file": "src/screens/EmptyState.tsx",
+    "buttons": 5,
+    "inputs": 1,
+    "links": 6
+  },
+  {
+    "screenId": "e5006c6b8fae4998bd7085ed4f794a60",
+    "title": "Filtered Overview",
+    "componentName": "FilteredOverview",
+    "file": "src/screens/FilteredOverview.tsx",
+    "buttons": 11,
+    "inputs": 1,
+    "links": 6
+  },
+  {
+    "screenId": "23ea4d1690c842babde275733bcd436b",
+    "title": "Settings",
+    "componentName": "Settings",
+    "file": "src/screens/Settings.tsx",
+    "buttons": 9,
+    "inputs": 6,
+    "links": 6
+  },
+  {
+    "screenId": "c741e805c20a4d43803be9a46bbdf235",
+    "title": "Equipment Status",
+    "componentName": "EquipmentStatus",
+    "file": "src/screens/EquipmentStatus.tsx",
+    "buttons": 9,
+    "inputs": 0,
+    "links": 6
+  },
+  {
+    "screenId": "9e3a3887c2204cbf81b2f12b24bfa964",
+    "title": "Task Board",
+    "componentName": "TaskBoard",
+    "file": "src/screens/TaskBoard.tsx",
+    "buttons": 7,
+    "inputs": 1,
+    "links": 6
+  },
+  {
+    "screenId": "bdd6b42748ff43068845885e00ac626d",
+    "title": "Maintenance Log",
+    "componentName": "MaintenanceLog",
+    "file": "src/screens/MaintenanceLog.tsx",
+    "buttons": 7,
+    "inputs": 1,
+    "links": 6
+  },
+  {
+    "screenId": "3f415cc754f64159ab4eb8483cc61385",
+    "title": "Operational Dashboard",
+    "componentName": "OperationalDashboard",
+    "file": "src/screens/OperationalDashboard.tsx",
+    "buttons": 10,
+    "inputs": 1,
+    "links": 7
+  }
+]
