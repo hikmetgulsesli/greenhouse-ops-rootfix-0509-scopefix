@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, within } from "@testing-library/react";
-import { FilteredOverview } from "../src/screens/FilteredOverview";
-import { MaintenanceLog } from "../src/screens/MaintenanceLog";
-import type { AppState, Task, MaintenanceLogEntry, AppSettings } from "../src/types/domain";
+import { FilteredOverview } from "./FilteredOverview";
+import { MaintenanceLog } from "./MaintenanceLog";
+import type { AppState, Task, MaintenanceLogEntry, AppSettings } from "../types/domain";
 
 const defaultSettings: AppSettings = {
   theme: "dark",
