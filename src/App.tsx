@@ -15,10 +15,12 @@ function AppShell({
   state,
   setScreen,
   onNewTask,
+  setSearchQuery,
 }: {
   state: AppState;
   setScreen: (s: string) => void;
   onNewTask: () => void;
+  setSearchQuery: (q: string) => void;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -151,7 +153,7 @@ function AppShell({
                 type="text"
                 value={state.searchQuery}
                 onChange={(e) => {
-                  /* search handled by screen */
+                  setSearchQuery(e.target.value);
                 }}
               />
             </div>
@@ -333,6 +335,7 @@ export default function App() {
       state={app.state}
       setScreen={app.setScreen}
       onNewTask={() => app.setScreen("tasks")}
+      setSearchQuery={app.setSearchQuery}
     />
   );
 }

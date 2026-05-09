@@ -251,7 +251,8 @@ export interface UseAppStateReturn {
 export function useAppState(): UseAppStateReturn {
   const [state, setState] = useState<AppState>(() => {
     try {
-      if (!isStorageAvailable() || isStorageFull()) {
+      const storageOk = isStorageAvailable();
+      if (!storageOk) {
         return createDefaultState();
       }
       const saved = loadState<AppState>();
@@ -270,9 +271,40 @@ export function useAppState(): UseAppStateReturn {
 
   const [storageError, setStorageError] = useState<StorageError | null>(null);
 
+  // Expose app state to window for debugging/verification (AC-2)
+  useEffect(() => {
+    const appApi = {
+      get activeScreen() { return state.currentScreen; },
+      get selectedItem() {
+        return null;
+      },
+      get storageStatus() {
+        return {
+          available: isStorageAvailable(),
+          full: isStorageFull(),
+          error: storageError ? { code: storageError.code, message: storageError.message } : null,
+        };
+      },
+      get lastError() { return storageError ? { code: storageError.code, message: storageError.message } : null; },
+      get activePanel() { return state.currentScreen; },
+      get itemCount() {
+        return {
+          tasks: state.tasks.length,
+          equipment: state.equipment.length,
+          logs: state.logs.length,
+          notifications: state.notifications.length,
+        };
+      },
+    };
+    (window as unknown as Record<string, unknown>).app = appApi;
+    return () => {
+      delete (window as unknown as Record<string, unknown>).app;
+    };
+  }, [state, storageError]);
+
   const persist = useCallback((next: AppState) => {
     try {
-      if (isStorageAvailable() && !isStorageFull()) {
+      if (isStorageAvailable()) {
         saveState(next);
         setStorageError(null);
       }
@@ -373,7 +405,7 @@ export function useAppState(): UseAppStateReturn {
   const retryStorage = useCallback(() => {
     try {
       setStorageError(null);
-      if (isStorageAvailable() && !isStorageFull()) {
+      if (isStorageAvailable()) {
         saveState(state);
       } else {
         setStorageError(new StorageError('Storage still unavailable', 'ERR_STORAGE_UNAVAILABLE'));
