@@ -89,7 +89,10 @@ export function Settings(props: SettingsProps = {}) {
           </div>
         </div>
         <div className="p-4">
-          <button className="w-full bg-primary text-on-primary py-2.5 px-4 rounded-DEFAULT font-semibold text-sm shadow-md hover:brightness-110 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+          <button
+            onClick={() => onNavigate?.('tasks', 'tasks')}
+            className="w-full bg-primary text-on-primary py-2.5 px-4 rounded-lg font-semibold text-sm shadow-md hover:brightness-110 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-colors active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
+          >
             <span className="material-symbols-outlined text-[18px]">add</span>
             New Maintenance Task
           </button>
@@ -113,11 +116,17 @@ export function Settings(props: SettingsProps = {}) {
           </button>
         </div>
         <div className="p-3 border-t border-outline-variant space-y-1">
-          <button className="flex items-center gap-3 w-full text-left py-3 px-4 transition-colors hover:bg-surface-container-high rounded-lg font-body text-label-md antialiased group active:scale-[0.98] cursor-pointer text-on-surface-variant hover:text-on-surface">
+          <button
+            onClick={() => onNavigate?.('settings', 'settings')}
+            className="flex items-center gap-3 w-full text-left py-3 px-4 transition-colors hover:bg-surface-container-high rounded-lg font-body text-label-md antialiased group active:scale-[0.98] cursor-pointer text-on-surface-variant hover:text-on-surface"
+          >
             <span className="material-symbols-outlined group-hover:text-primary transition-colors">help</span>
             Support
           </button>
-          <button className="flex items-center gap-3 w-full text-left py-3 px-4 rounded-r-lg font-body text-label-md antialiased active:scale-[0.98] transition-transform text-primary border-l-4 border-primary bg-secondary-container/20 font-bold">
+          <button
+            onClick={() => onNavigate?.('settings', 'settings')}
+            className="flex items-center gap-3 w-full text-left py-3 px-4 rounded-r-lg font-body text-label-md antialiased active:scale-[0.98] transition-transform text-primary border-l-4 border-primary bg-secondary-container/20 font-bold"
+          >
             <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>settings</span>
             Settings
           </button>
@@ -136,16 +145,28 @@ export function Settings(props: SettingsProps = {}) {
           </div>
           <div className="flex items-center gap-2">
             <div className="relative group">
-              <button className="p-2 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary rounded-full transition-colors cursor-pointer active:opacity-80" aria-label="Search">
+              <button
+              onClick={() => onNavigate?.('dashboard', 'dashboard')}
+              className="p-2 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary rounded-full transition-colors cursor-pointer active:opacity-80"
+              aria-label="Search"
+            >
                 <span className="material-symbols-outlined">search</span>
               </button>
             </div>
             <div className="h-6 w-px bg-outline-variant mx-2"></div>
-            <button className="p-2 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary rounded-full transition-colors cursor-pointer active:opacity-80 relative" aria-label="Notifications">
+            <button
+              onClick={() => onNavigate?.('settings', 'settings')}
+              className="p-2 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary rounded-full transition-colors cursor-pointer active:opacity-80 relative"
+              aria-label="Notifications"
+            >
               <span className="material-symbols-outlined">notifications</span>
               <span className="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
             </button>
-            <button className="p-2 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary rounded-full transition-colors cursor-pointer active:opacity-80" aria-label="Account">
+            <button
+              onClick={() => onNavigate?.('settings', 'settings')}
+              className="p-2 text-on-surface-variant hover:bg-surface-container-highest hover:text-primary rounded-full transition-colors cursor-pointer active:opacity-80"
+              aria-label="Account"
+            >
               <span className="material-symbols-outlined">account_circle</span>
             </button>
           </div>
@@ -251,7 +272,10 @@ export function Settings(props: SettingsProps = {}) {
                     </div>
                   </div>
                   <div className="mt-6 pt-4 border-t border-outline-variant">
-                    <button className="text-sm text-error hover:text-error-container transition-colors font-medium flex items-center gap-2 cursor-pointer">
+                    <button
+                      onClick={() => onNavigate?.('settings', 'settings')}
+                      className="text-sm text-error hover:text-error-container transition-colors font-medium flex items-center gap-2 cursor-pointer"
+                    >
                       <span className="material-symbols-outlined text-[18px]">restart_alt</span>
                       Restart System Services
                     </button>

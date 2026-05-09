@@ -178,7 +178,7 @@ export function EquipmentStatus(props: EquipmentStatusProps = {}) {
                         </span>
                       </div>
                       <div className="w-full bg-surface-container-highest rounded-full h-2">
-                        <div className={`${barColor} h-2 rounded-full transition-all duration-500`} style={{ width: `${eq.health}%` }} />
+                        <div className={`${barColor} h-2 rounded-full transition-transform duration-500`} style={{ width: `${eq.health}%` }} />
                       </div>
                     </div>
                     <div className="text-sm text-on-surface-variant mb-6 space-y-1">

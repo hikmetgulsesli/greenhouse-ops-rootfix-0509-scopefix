@@ -224,6 +224,7 @@ export function FilteredOverview(props: FilteredOverviewProps = {}) {
                     </div>
                     <div className="relative group">
                       <button
+                        onClick={() => handleNavigate("tasks")}
                         className="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container-highest cursor-pointer"
                         aria-label="Task options"
                       >

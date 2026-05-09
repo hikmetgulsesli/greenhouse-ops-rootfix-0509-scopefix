@@ -13,7 +13,7 @@ export interface EmptyStateProps {
 }
 
 export function EmptyState(props: EmptyStateProps = {}) {
-  const { onAction, onNavigate } = props;
+  const { onAction, onNavigate, onClose, onBack } = props;
 
   const handleNewTask = () => {
     if (onAction) onAction("new-task");
@@ -21,6 +21,10 @@ export function EmptyState(props: EmptyStateProps = {}) {
 
   const handleNav = (screen: string) => {
     if (onNavigate) onNavigate(undefined, screen);
+  };
+
+  const handleMenu = () => {
+    if (onNavigate) onNavigate(undefined, "dashboard");
   };
 
   return (
@@ -39,7 +43,7 @@ export function EmptyState(props: EmptyStateProps = {}) {
         <div className="px-4 mb-6">
           <button
             onClick={handleNewTask}
-            className="w-full bg-primary text-on-primary font-bold py-2.5 px-4 rounded-full flex items-center justify-center space-x-2 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-low transition-all active:scale-[0.98] cursor-pointer"
+            className="w-full bg-primary text-on-primary font-bold py-2.5 px-4 rounded-full flex items-center justify-center space-x-2 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-low transition-colors active:scale-[0.98] cursor-pointer"
           >
             <span className="material-symbols-outlined text-sm">add</span>
             <span>New Maintenance Task</span>
@@ -92,7 +96,7 @@ export function EmptyState(props: EmptyStateProps = {}) {
         <header className="w-full top-0 sticky z-40 bg-background/95 backdrop-blur-md border-b border-outline-variant">
           <div className="flex justify-between items-center h-16 px-6">
             <div className="md:hidden flex items-center">
-              <button className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80" aria-label="Open menu">
+              <button onClick={handleMenu} className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80" aria-label="Open menu">
                 <span className="material-symbols-outlined">menu</span>
               </button>
               <span className="ml-4 font-headline text-lg font-semibold text-primary">Greenhouse Ops</span>
@@ -104,16 +108,24 @@ export function EmptyState(props: EmptyStateProps = {}) {
               <div className="relative hidden sm:block mr-2">
                 <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
                 <input
-                  className="bg-surface-container-high border border-outline-variant text-on-surface text-sm rounded-full pl-9 pr-4 py-1.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-48 transition-all"
+                  className="bg-surface-container-high border border-outline-variant text-on-surface text-sm rounded-full pl-9 pr-4 py-1.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-48 transition-colors"
                   placeholder="Search..."
                   type="text"
                   readOnly
                 />
               </div>
-              <button className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80 flex items-center justify-center" aria-label="Notifications">
+              <button
+                onClick={() => handleNav("settings")}
+                className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80 flex items-center justify-center"
+                aria-label="Notifications"
+              >
                 <span className="material-symbols-outlined">notifications</span>
               </button>
-              <button className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80 flex items-center justify-center relative" aria-label="User profile">
+              <button
+                onClick={() => handleNav("settings")}
+                className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80 flex items-center justify-center relative"
+                aria-label="User profile"
+              >
                 <span className="material-symbols-outlined">account_circle</span>
                 <span className="sr-only">User Profile</span>
               </button>
@@ -143,7 +155,7 @@ export function EmptyState(props: EmptyStateProps = {}) {
             {/* Primary Action */}
             <button
               onClick={handleNewTask}
-              className="bg-primary text-on-primary font-headline font-bold py-3 px-8 rounded-full flex items-center justify-center space-x-2 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all active:scale-[0.98] cursor-pointer"
+              className="bg-primary text-on-primary font-headline font-bold py-3 px-8 rounded-full flex items-center justify-center space-x-2 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-colors active:scale-[0.98] cursor-pointer"
             >
               <span className="material-symbols-outlined text-lg">add_circle</span>
               <span>Create New Task</span>
