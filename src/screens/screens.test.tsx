@@ -1,8 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, within } from "@testing-library/react";
-import { FilteredOverview } from "./FilteredOverview";
-import { MaintenanceLog } from "./MaintenanceLog";
-import type { AppState, Task, MaintenanceLogEntry, AppSettings } from "../types/domain";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { StorageErrorState } from "./StorageErrorState";
+import { EmptyState } from "./EmptyState";
+import { EquipmentStatus } from "./EquipmentStatus";
+import { TaskBoard } from "./TaskBoard";
+import type { AppState, Equipment, Task, AppSettings } from "../types/domain";
 
 const defaultSettings: AppSettings = {
   theme: "dark",
@@ -18,7 +20,7 @@ const defaultSettings: AppSettings = {
 
 function makeState(overrides: Partial<AppState> = {}): AppState {
   return {
-    currentScreen: "filtered",
+    currentScreen: "dashboard",
     tasks: [],
     equipment: [],
     logs: [],
@@ -28,6 +30,49 @@ function makeState(overrides: Partial<AppState> = {}): AppState {
     ...overrides,
   };
 }
+
+const mockEquipment: Equipment[] = [
+  {
+    id: "e-1",
+    name: "HVAC Unit Alpha",
+    type: "hvac",
+    zone: "Zone 1 Climate Control",
+    health: 42,
+    state: "offline",
+    lastService: "2023-10-12",
+    nextService: "OVERDUE",
+  },
+  {
+    id: "e-2",
+    name: "Soil Array 4",
+    type: "sensor",
+    zone: "Zone 3 Moisture/pH",
+    health: 98,
+    state: "online",
+    lastService: "2023-11-05",
+    nextService: "2024-05-05",
+  },
+  {
+    id: "e-3",
+    name: "Main Pump B",
+    type: "irrigation",
+    zone: "Central Reservoir",
+    health: 65,
+    state: "maintenance",
+    lastService: "2023-08-22",
+    nextService: "In Progress",
+  },
+  {
+    id: "e-4",
+    name: "LED Array West",
+    type: "lighting",
+    zone: "Zone 2 Canopy",
+    health: 92,
+    state: "online",
+    lastService: "2023-09-10",
+    nextService: "2024-03-10",
+  },
+];
 
 const mockTasks: Task[] = [
   {
@@ -45,7 +90,7 @@ const mockTasks: Task[] = [
     id: "t-2",
     title: "Calibrate humidity sensors",
     description: "Quarterly calibration for Zone 4 sensors",
-    status: "in-progress",
+    status: "todo",
     priority: "medium",
     assignee: "Anna Lee",
     zone: "Sector 4",
@@ -68,143 +113,220 @@ const mockTasks: Task[] = [
     title: "Patch structural leak",
     description: "Water ingress detected in Bay 2",
     status: "in-progress",
-    priority: "critical",
+    priority: "high",
     assignee: "Tom Servo",
     zone: "Bay 2",
     dueDate: new Date().toISOString().split("T")[0],
     createdAt: new Date().toISOString(),
   },
-];
-
-const mockLogs: MaintenanceLogEntry[] = [
   {
-    id: "l-1",
-    date: "2023-10-26T08:30:00",
-    equipment: "Zone A - Climate Unit 4",
-    action: "Replaced HEPA filters",
-    technician: "J. Doe",
+    id: "t-5",
+    title: "Refill nutrient dosing tanks",
+    description: "Nutrient levels below threshold",
     status: "completed",
-  },
-  {
-    id: "l-2",
-    date: "2023-10-25T14:15:00",
-    equipment: "Irrigation Pump P-02",
-    action: "Quarterly lubrication and seal check",
-    technician: "M. Smith",
-    status: "completed",
-  },
-  {
-    id: "l-3",
-    date: "2023-10-25T10:00:00",
-    equipment: "Sensor Array ZB-1",
-    action: "Recalibration sequence initiated",
-    technician: "J. Doe",
-    status: "in-progress",
-  },
-  {
-    id: "l-4",
-    date: "2023-10-24T16:45:00",
-    equipment: "Nutrient Doser N-01",
-    action: "Valve replacement (Emergency)",
-    technician: "R. Klein",
-    status: "issue-logged",
+    priority: "medium",
+    assignee: "M. Smith",
+    zone: "Nutrient Room",
+    dueDate: new Date().toISOString().split("T")[0],
+    createdAt: new Date().toISOString(),
   },
 ];
 
-describe("FilteredOverview", () => {
+describe("StorageErrorState", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it("renders all tasks from state", () => {
-    render(<FilteredOverview state={makeState({ tasks: mockTasks })} />);
-    expect(screen.getByText("Replace faulty flow valve")).toBeInTheDocument();
-    expect(screen.getByText("Calibrate humidity sensors")).toBeInTheDocument();
-    expect(screen.getByText("Patch structural leak")).toBeInTheDocument();
+  it("renders error message and error code", () => {
+    render(<StorageErrorState />);
+    expect(screen.getByText("Data Sync Error")).toBeInTheDocument();
+    expect(screen.getByText(/ERR_QUOTA_EXCEEDED/)).toBeInTheDocument();
+    expect(screen.getByText(/Local storage is full or unavailable/)).toBeInTheDocument();
   });
 
-  it("filters tasks by search query", () => {
-    render(<FilteredOverview state={makeState({ tasks: mockTasks, searchQuery: "valve" })} />);
-    expect(screen.getByText("Replace faulty flow valve")).toBeInTheDocument();
-    expect(screen.queryByText("Calibrate humidity sensors")).not.toBeInTheDocument();
+  it("calls onClose when retry button is clicked", () => {
+    const onClose = vi.fn();
+    render(<StorageErrorState onClose={onClose} />);
+    const retryBtn = screen.getByRole("button", { name: /retry storage sync/i });
+    fireEvent.click(retryBtn);
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("filters by critical status chip", () => {
-    render(<FilteredOverview state={makeState({ tasks: mockTasks })} />);
-    const criticalBtn = screen.getByRole("button", { name: /critical status/i });
-    fireEvent.click(criticalBtn);
-    expect(screen.getByText("Replace faulty flow valve")).toBeInTheDocument();
-    expect(screen.getByText("Patch structural leak")).toBeInTheDocument();
-    expect(screen.queryByText("Calibrate humidity sensors")).not.toBeInTheDocument();
-    expect(screen.queryByText("Quarterly inspection of exhaust fans")).not.toBeInTheDocument();
+  it("calls onBack when retry button is clicked and onClose is not provided", () => {
+    const onBack = vi.fn();
+    render(<StorageErrorState onBack={onBack} />);
+    const retryBtn = screen.getByRole("button", { name: /retry storage sync/i });
+    fireEvent.click(retryBtn);
+    expect(onBack).toHaveBeenCalledTimes(1);
   });
 
-  it("filters by due today chip", () => {
-    render(<FilteredOverview state={makeState({ tasks: mockTasks })} />);
-    const todayBtn = screen.getByRole("button", { name: /due today/i });
-    fireEvent.click(todayBtn);
-    expect(screen.getByText("Replace faulty flow valve")).toBeInTheDocument();
-    expect(screen.getByText("Patch structural leak")).toBeInTheDocument();
-    expect(screen.queryByText("Calibrate humidity sensors")).not.toBeInTheDocument();
+  it("calls onClose when clear storage button is clicked", () => {
+    const onClose = vi.fn();
+    render(<StorageErrorState onClose={onClose} />);
+    const clearBtn = screen.getByRole("button", { name: /clear local storage/i });
+    fireEvent.click(clearBtn);
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("filters by assigned chip", () => {
-    render(<FilteredOverview state={makeState({ tasks: mockTasks })} />);
-    const assignedBtn = screen.getByRole("button", { name: /assigned to me/i });
-    fireEvent.click(assignedBtn);
-    expect(screen.queryByText("Quarterly inspection of exhaust fans")).not.toBeInTheDocument();
-    expect(screen.getByText("Replace faulty flow valve")).toBeInTheDocument();
-  });
-
-  it("shows empty state when no tasks match", () => {
-    render(<FilteredOverview state={makeState({ tasks: [] })} />);
-    expect(screen.getByText(/no tasks match your filters/i)).toBeInTheDocument();
-  });
-
-  it("shows result count", () => {
-    render(<FilteredOverview state={makeState({ tasks: mockTasks })} />);
-    expect(screen.getByText(/found 4 results/i)).toBeInTheDocument();
+  it("navigates to dashboard via sidebar", () => {
+    const onNavigate = vi.fn();
+    render(<StorageErrorState onNavigate={onNavigate} />);
+    const dashboardBtn = screen.getByRole("button", { name: /dashboard/i });
+    fireEvent.click(dashboardBtn);
+    expect(onNavigate).toHaveBeenCalled();
   });
 });
 
-describe("MaintenanceLog", () => {
+describe("EmptyState", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it("renders all logs from state", () => {
-    render(<MaintenanceLog state={makeState({ logs: mockLogs })} />);
-    expect(screen.getByText("Zone A - Climate Unit 4")).toBeInTheDocument();
-    expect(screen.getByText("Irrigation Pump P-02")).toBeInTheDocument();
-    expect(screen.getByText("Sensor Array ZB-1")).toBeInTheDocument();
-    expect(screen.getByText("Nutrient Doser N-01")).toBeInTheDocument();
+  it("renders empty state message", () => {
+    render(<EmptyState />);
+    expect(screen.getByText("No Tasks Found")).toBeInTheDocument();
+    expect(screen.getByText(/Get started by creating your first maintenance task/)).toBeInTheDocument();
   });
 
-  it("filters logs by search", () => {
-    render(<MaintenanceLog state={makeState({ logs: mockLogs })} />);
-    const searchInput = screen.getByPlaceholderText(/search logs/i);
-    fireEvent.change(searchInput, { target: { value: "pump" } });
-    expect(screen.getByText("Irrigation Pump P-02")).toBeInTheDocument();
-    expect(screen.queryByText("Zone A - Climate Unit 4")).not.toBeInTheDocument();
+  it("calls onAction with new-task when create button is clicked", () => {
+    const onAction = vi.fn();
+    render(<EmptyState onAction={onAction} />);
+    const createBtn = screen.getByRole("button", { name: /create new task/i });
+    fireEvent.click(createBtn);
+    expect(onAction).toHaveBeenCalledWith("new-task");
   });
 
-  it("filters logs by status", () => {
-    render(<MaintenanceLog state={makeState({ logs: mockLogs })} />);
-    const statusSelect = screen.getByRole("combobox");
-    fireEvent.change(statusSelect, { target: { value: "completed" } });
-    expect(screen.getByText("Zone A - Climate Unit 4")).toBeInTheDocument();
-    expect(screen.getByText("Irrigation Pump P-02")).toBeInTheDocument();
-    expect(screen.queryByText("Sensor Array ZB-1")).not.toBeInTheDocument();
-    expect(screen.queryByText("Nutrient Doser N-01")).not.toBeInTheDocument();
+  it("navigates via sidebar buttons", () => {
+    const onNavigate = vi.fn();
+    render(<EmptyState onNavigate={onNavigate} />);
+    const dashboardBtn = screen.getByRole("button", { name: /dashboard/i });
+    fireEvent.click(dashboardBtn);
+    expect(onNavigate).toHaveBeenCalled();
+  });
+});
+
+describe("EquipmentStatus", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
   });
 
-  it("shows empty state when no logs match", () => {
-    render(<MaintenanceLog state={makeState({ logs: [] })} />);
-    expect(screen.getByText(/no logs match your filters/i)).toBeInTheDocument();
+  it("renders all equipment from state", () => {
+    render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
+    expect(screen.getByText("HVAC Unit Alpha")).toBeInTheDocument();
+    expect(screen.getByText("Soil Array 4")).toBeInTheDocument();
+    expect(screen.getByText("Main Pump B")).toBeInTheDocument();
+    expect(screen.getByText("LED Array West")).toBeInTheDocument();
   });
 
-  it("shows entry count in footer", () => {
-    render(<MaintenanceLog state={makeState({ logs: mockLogs })} />);
-    expect(screen.getByText(/showing 4 of 4 entries/i)).toBeInTheDocument();
+  it("filters by equipment type", () => {
+    render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
+    const typeSelect = screen.getByRole('combobox', { name: /equipment type/i });
+    fireEvent.change(typeSelect, { target: { value: "sensor" } });
+    expect(screen.getByText("Soil Array 4")).toBeInTheDocument();
+    expect(screen.queryByText("HVAC Unit Alpha")).not.toBeInTheDocument();
+  });
+
+  it("filters by operational state", () => {
+    render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
+    const stateSelect = screen.getByRole('combobox', { name: /operational state/i });
+    fireEvent.change(stateSelect, { target: { value: "offline" } });
+    expect(screen.getByText("HVAC Unit Alpha")).toBeInTheDocument();
+    expect(screen.queryByText("Soil Array 4")).not.toBeInTheDocument();
+  });
+
+  it("filters by health status", () => {
+    render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
+    const healthSelect = screen.getByRole('combobox', { name: /health status/i });
+    fireEvent.change(healthSelect, { target: { value: "optimal" } });
+    expect(screen.getByText("Soil Array 4")).toBeInTheDocument();
+    expect(screen.getByText("LED Array West")).toBeInTheDocument();
+    expect(screen.queryByText("HVAC Unit Alpha")).not.toBeInTheDocument();
+  });
+
+  it("shows empty state when no equipment matches filters", () => {
+    render(<EquipmentStatus state={makeState({ equipment: [] })} />);
+    expect(screen.getByText(/no equipment matches your filters/i)).toBeInTheDocument();
+  });
+
+  it("shows correct health percentage and bar color", () => {
+    render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
+    expect(screen.getByText("42%")).toBeInTheDocument();
+    expect(screen.getByText("98%")).toBeInTheDocument();
+  });
+
+  it("disables schedule button for maintenance state equipment", () => {
+    render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} />);
+    const maintenanceBtn = screen.getByRole("button", { name: /maintenance active/i });
+    expect(maintenanceBtn).toBeDisabled();
+  });
+
+  it("navigates to tasks when schedule maintenance is clicked", () => {
+    const onNavigate = vi.fn();
+    render(<EquipmentStatus state={makeState({ equipment: mockEquipment })} onNavigate={onNavigate} />);
+    const scheduleButtons = screen.getAllByRole("button", { name: /schedule maintenance/i });
+    fireEvent.click(scheduleButtons[0]);
+    expect(onNavigate).toHaveBeenCalled();
+  });
+});
+
+describe("TaskBoard", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it("renders all task columns", () => {
+    render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
+    expect(screen.getByRole("heading", { name: "To Do" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "In Progress" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Completed" })).toBeInTheDocument();
+  });
+
+  it("renders tasks in correct columns", () => {
+    render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
+    expect(screen.getByText("Replace faulty flow valve")).toBeInTheDocument();
+    expect(screen.getByText("Patch structural leak")).toBeInTheDocument();
+    expect(screen.getByText("Refill nutrient dosing tanks")).toBeInTheDocument();
+  });
+
+  it("filters tasks by search", () => {
+    render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
+    const searchInput = screen.getByPlaceholderText(/search tasks/i);
+    fireEvent.change(searchInput, { target: { value: "valve" } });
+    expect(screen.getByText("Replace faulty flow valve")).toBeInTheDocument();
+    expect(screen.queryByText("Calibrate humidity sensors")).not.toBeInTheDocument();
+  });
+
+  it("shows task priority badges", () => {
+    render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
+    expect(screen.getAllByText("High").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Medium").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Low").length).toBeGreaterThan(0);
+  });
+
+  it("shows assignee initials or unassigned", () => {
+    render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
+    expect(screen.getByText("MJ")).toBeInTheDocument();
+    expect(screen.getByText("AL")).toBeInTheDocument();
+    expect(screen.getByText("Unassigned")).toBeInTheDocument();
+  });
+
+  it("calls onAction when new task button is clicked", () => {
+    const onAction = vi.fn();
+    render(<TaskBoard state={makeState({ tasks: mockTasks })} onAction={onAction} />);
+    const newTaskBtn = screen.getByRole("button", { name: /new task/i });
+    fireEvent.click(newTaskBtn);
+    expect(onAction).toHaveBeenCalledWith("new-task");
+  });
+
+  it("shows completed tasks with strikethrough", () => {
+    render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
+    const completedTask = screen.getByText("Refill nutrient dosing tanks");
+    expect(completedTask).toBeInTheDocument();
+  });
+
+  it("shows task counts per column", () => {
+    render(<TaskBoard state={makeState({ tasks: mockTasks })} />);
+    const counts = screen.getAllByText(/\d+/).filter((el) => el.classList.contains("font-mono"));
+    expect(counts.length).toBeGreaterThan(0);
   });
 });
