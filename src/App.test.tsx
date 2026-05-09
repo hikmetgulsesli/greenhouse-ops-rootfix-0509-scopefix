@@ -5,14 +5,14 @@ import App from "./App";
 describe("App shell", () => {
   it("should render the app with sidebar navigation", () => {
     render(<App />);
-    expect(document.querySelector("nav")).toBeDefined();
+    expect(document.querySelector("nav")).not.toBeNull();
   });
 
   it("should navigate to Task Board when clicked", () => {
     render(<App />);
     const buttons = screen.getAllByText("Task Board");
     fireEvent.click(buttons[0]);
-    expect(document.querySelector("nav")).toBeDefined();
+    expect(document.querySelector("nav")).not.toBeNull();
   });
 
   it("should render sidebar with all nav items", () => {
@@ -33,6 +33,14 @@ describe("App shell", () => {
   it("should show notification button", () => {
     render(<App />);
     const notifBtn = screen.getByLabelText("Notifications");
-    expect(notifBtn).toBeDefined();
+    expect(notifBtn).not.toBeNull();
+  });
+
+  it("should update search query on input change", () => {
+    render(<App />);
+    const searchInputs = screen.getAllByPlaceholderText("Search systems...");
+    const searchInput = searchInputs[0] as HTMLInputElement;
+    fireEvent.change(searchInput, { target: { value: "pump" } });
+    expect(searchInput.value).toBe("pump");
   });
 });

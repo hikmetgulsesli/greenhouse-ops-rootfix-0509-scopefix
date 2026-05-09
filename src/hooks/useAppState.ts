@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import type {
   AppState,
   Task,
@@ -12,7 +12,7 @@ import type {
   EquipmentType,
   LogStatus,
 } from '../types/domain';
-import { loadState, saveState, clearStorage, isStorageAvailable, isStorageFull, StorageError } from '../utils/storage';
+import { loadState, saveState, clearStorage, isStorageAvailable, StorageError } from '../utils/storage';
 
 const defaultSettings: AppSettings = {
   theme: 'dark',
@@ -281,7 +281,6 @@ export function useAppState(): UseAppStateReturn {
       get storageStatus() {
         return {
           available: isStorageAvailable(),
-          full: isStorageFull(),
           error: storageError ? { code: storageError.code, message: storageError.message } : null,
         };
       },
@@ -305,7 +304,9 @@ export function useAppState(): UseAppStateReturn {
   const persist = useCallback((next: AppState) => {
     try {
       if (isStorageAvailable()) {
-        saveState(next);
+        // Exclude searchQuery from persistence to avoid hammering localStorage on keystrokes
+        const { searchQuery: _, ...stateToPersist } = next;
+        saveState(stateToPersist);
         setStorageError(null);
       }
     } catch (e) {
@@ -315,8 +316,20 @@ export function useAppState(): UseAppStateReturn {
     }
   }, []);
 
+  // Debounce persistence: only save after 500ms of state stability
+  const persistTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
-    persist(state);
+    if (persistTimeoutRef.current) {
+      clearTimeout(persistTimeoutRef.current);
+    }
+    persistTimeoutRef.current = setTimeout(() => {
+      persist(state);
+    }, 500);
+    return () => {
+      if (persistTimeoutRef.current) {
+        clearTimeout(persistTimeoutRef.current);
+      }
+    };
   }, [state, persist]);
 
   const setScreen = useCallback((screen: string) => {
@@ -330,7 +343,7 @@ export function useAppState(): UseAppStateReturn {
     setState((prev) => {
       const newTask: Task = {
         ...task,
-        id: `t-${Date.now()}`,
+        id: `t-${crypto.randomUUID()}`,
         createdAt: new Date().toISOString(),
       };
       return { ...prev, tasks: [...prev.tasks, newTask] };
@@ -355,7 +368,7 @@ export function useAppState(): UseAppStateReturn {
     setState((prev) => {
       const newEquipment: Equipment = {
         ...equipment,
-        id: `e-${Date.now()}`,
+        id: `e-${crypto.randomUUID()}`,
       };
       return { ...prev, equipment: [...prev.equipment, newEquipment] };
     });
@@ -372,7 +385,7 @@ export function useAppState(): UseAppStateReturn {
     setState((prev) => {
       const newLog: MaintenanceLogEntry = {
         ...log,
-        id: `l-${Date.now()}`,
+        id: `l-${crypto.randomUUID()}`,
       };
       return { ...prev, logs: [newLog, ...prev.logs] };
     });
@@ -450,5 +463,5 @@ export function useAppState(): UseAppStateReturn {
   };
 }
 
-export { StorageError, isStorageAvailable, isStorageFull };
+export { StorageError, isStorageAvailable };
 export type { TaskStatus, TaskPriority, EquipmentState, EquipmentType, LogStatus };

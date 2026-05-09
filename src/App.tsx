@@ -9,7 +9,6 @@ import { FilteredOverview } from "./screens/FilteredOverview";
 import { EmptyState } from "./screens/EmptyState";
 import { StorageErrorState } from "./screens/StorageErrorState";
 import { Settings } from "./screens/Settings";
-import { ProfilePanel } from "./screens/ProfilePanel";
 
 function AppShell({
   state,
