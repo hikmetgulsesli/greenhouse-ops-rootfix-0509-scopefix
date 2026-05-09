@@ -1,0 +1,1636 @@
+[
+  {
+    "screenId": "0d9300fc7d9d489a8e7b19999bb95bf9",
+    "screenTitle": "Profile Panel",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Profile",
+        "href": "#",
+        "line": 115
+      },
+      {
+        "type": "link",
+        "label": "security",
+        "href": "#",
+        "line": 120
+      },
+      {
+        "type": "link",
+        "label": "Preferences",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "notifications",
+        "href": "#",
+        "line": 128
+      },
+      {
+        "type": "button",
+        "label": "Close panel",
+        "line": 108
+      },
+      {
+        "type": "button",
+        "label": "logout",
+        "line": 135
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Profile",
+        "href": "#",
+        "line": 115
+      },
+      {
+        "type": "link",
+        "label": "security",
+        "href": "#",
+        "line": 120
+      },
+      {
+        "type": "link",
+        "label": "Preferences",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "notifications",
+        "href": "#",
+        "line": 128
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Close panel",
+        "line": 108
+      },
+      {
+        "type": "button",
+        "label": "logout",
+        "line": 135
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 6,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "29f3b25c4569405fbdf3162ed8dca6ad",
+    "screenTitle": "Storage Error State",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 120
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 128
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 139
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 143
+      },
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 113
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 163
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 166
+      },
+      {
+        "type": "button",
+        "label": "Clear Storage",
+        "line": 201
+      },
+      {
+        "type": "button",
+        "label": "Retry",
+        "line": 206
+      },
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 160
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 120
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 128
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 139
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 143
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 113
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 163
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 166
+      },
+      {
+        "type": "button",
+        "label": "Clear Storage",
+        "line": 201
+      },
+      {
+        "type": "button",
+        "label": "Retry",
+        "line": 206
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 160
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 12,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "a182f948aefb4c1fac42fec2b66757a9",
+    "screenTitle": "Empty State",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 109
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 113
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 121
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 128
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 102
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 145
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "User Profile",
+        "line": 164
+      },
+      {
+        "type": "button",
+        "label": "Create New Task",
+        "line": 190
+      },
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 159
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 109
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 113
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 121
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 128
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 132
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 102
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 145
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "User Profile",
+        "line": 164
+      },
+      {
+        "type": "button",
+        "label": "Create New Task",
+        "line": 190
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search...",
+        "inputType": "text",
+        "placeholder": "Search...",
+        "line": 159
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 12,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "e5006c6b8fae4998bd7085ed4f794a60",
+    "screenTitle": "Filtered Overview",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 97
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 101
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 105
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 109
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 115
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 119
+      },
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 92
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 137
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 140
+      },
+      {
+        "type": "button",
+        "label": "Critical Status",
+        "line": 155
+      },
+      {
+        "type": "button",
+        "label": "Due",
+        "line": 159
+      },
+      {
+        "type": "button",
+        "label": "Assigned to Me",
+        "line": 163
+      },
+      {
+        "type": "button",
+        "label": "More Filters",
+        "line": 168
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 186
+      },
+      {
+        "type": "button",
+        "label": "View Details",
+        "line": 199
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 211
+      },
+      {
+        "type": "button",
+        "label": "View Details",
+        "line": 224
+      },
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 135
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 97
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 101
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 105
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 109
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 115
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 119
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 92
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 137
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 140
+      },
+      {
+        "type": "button",
+        "label": "Critical Status",
+        "line": 155
+      },
+      {
+        "type": "button",
+        "label": "Due",
+        "line": 159
+      },
+      {
+        "type": "button",
+        "label": "Assigned to Me",
+        "line": 163
+      },
+      {
+        "type": "button",
+        "label": "More Filters",
+        "line": 168
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 186
+      },
+      {
+        "type": "button",
+        "label": "View Details",
+        "line": 199
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 211
+      },
+      {
+        "type": "button",
+        "label": "View Details",
+        "line": 224
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 135
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 18,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "23ea4d1690c842babde275733bcd436b",
+    "screenTitle": "Settings",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 121
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 125
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 129
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 135
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 140
+      },
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 111
+      },
+      {
+        "type": "button",
+        "label": "Back",
+        "line": 151
+      },
+      {
+        "type": "button",
+        "label": "search",
+        "line": 159
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 164
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 168
+      },
+      {
+        "type": "button",
+        "label": "Restart System Services",
+        "line": 249
+      },
+      {
+        "type": "button",
+        "label": "Discard Changes",
+        "line": 332
+      },
+      {
+        "type": "button",
+        "label": "Save Configuration",
+        "line": 333
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 207
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 211
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 215
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 270
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 278
+      },
+      {
+        "type": "input",
+        "label": "range",
+        "inputType": "range",
+        "line": 300
+      },
+      {
+        "type": "input",
+        "label": "range",
+        "inputType": "range",
+        "line": 312
+      },
+      {
+        "type": "input",
+        "label": "number",
+        "inputType": "number",
+        "line": 325
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 121
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 125
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 129
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 135
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 140
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 111
+      },
+      {
+        "type": "button",
+        "label": "Back",
+        "line": 151
+      },
+      {
+        "type": "button",
+        "label": "search",
+        "line": 159
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 164
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 168
+      },
+      {
+        "type": "button",
+        "label": "Restart System Services",
+        "line": 249
+      },
+      {
+        "type": "button",
+        "label": "Discard Changes",
+        "line": 332
+      },
+      {
+        "type": "button",
+        "label": "Save Configuration",
+        "line": 333
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 207
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 211
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 215
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 270
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 278
+      },
+      {
+        "type": "input",
+        "label": "range",
+        "inputType": "range",
+        "line": 300
+      },
+      {
+        "type": "input",
+        "label": "range",
+        "inputType": "range",
+        "line": 312
+      },
+      {
+        "type": "input",
+        "label": "number",
+        "inputType": "number",
+        "line": 325
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 22,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "c741e805c20a4d43803be9a46bbdf235",
+    "screenTitle": "Equipment Status",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 96
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 102
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 108
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 114
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 129
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 135
+      },
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 122
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 148
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 155
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 158
+      },
+      {
+        "type": "button",
+        "label": "Schedule Maintenance",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "Schedule Maintenance",
+        "line": 279
+      },
+      {
+        "type": "button",
+        "label": "Maintenance Active",
+        "line": 320
+      },
+      {
+        "type": "button",
+        "label": "Schedule Maintenance",
+        "line": 361
+      },
+      {
+        "type": "button",
+        "label": "Schedule Maintenance",
+        "line": 402
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 172
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 182
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 191
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 96
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 102
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 108
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 114
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 129
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 135
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 122
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 148
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 155
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 158
+      },
+      {
+        "type": "button",
+        "label": "Schedule Maintenance",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "Schedule Maintenance",
+        "line": 279
+      },
+      {
+        "type": "button",
+        "label": "Maintenance Active",
+        "line": 320
+      },
+      {
+        "type": "button",
+        "label": "Schedule Maintenance",
+        "line": 361
+      },
+      {
+        "type": "button",
+        "label": "Schedule Maintenance",
+        "line": 402
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 172
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 182
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 191
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 18,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "9e3a3887c2204cbf81b2f12b24bfa964",
+    "screenTitle": "Task Board",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 105
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 111
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 123
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 134
+      },
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 98
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 152
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 155
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 188
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 200
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 223
+      },
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 150
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 105
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 111
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 123
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 134
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 98
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 152
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 155
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 188
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 200
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 223
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search tasks...",
+        "inputType": "text",
+        "placeholder": "Search tasks...",
+        "line": 150
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 14,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "bdd6b42748ff43068845885e00ac626d",
+    "screenTitle": "Maintenance Log",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 111
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 118
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 125
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 141
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 147
+      },
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 102
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 166
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Oct 1 - Oct 31, 2023",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "Export CSV",
+        "line": 191
+      },
+      {
+        "type": "button",
+        "label": "chevron_left",
+        "line": 293
+      },
+      {
+        "type": "button",
+        "label": "chevron_right",
+        "line": 296
+      },
+      {
+        "type": "input",
+        "label": "Search logs...",
+        "inputType": "text",
+        "placeholder": "Search logs...",
+        "line": 163
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 111
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 118
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 125
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 141
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 147
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 102
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 166
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Oct 1 - Oct 31, 2023",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "Export CSV",
+        "line": 191
+      },
+      {
+        "type": "button",
+        "label": "chevron_left",
+        "line": 293
+      },
+      {
+        "type": "button",
+        "label": "chevron_right",
+        "line": 296
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search logs...",
+        "inputType": "text",
+        "placeholder": "Search logs...",
+        "line": 163
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 14,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "3f415cc754f64159ab4eb8483cc61385",
+    "screenTitle": "Operational Dashboard",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 102
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 107
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 112
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 135
+      },
+      {
+        "type": "link",
+        "label": "View Full Log →",
+        "href": "#",
+        "line": 354
+      },
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 124
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 148
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "24h",
+        "line": 262
+      },
+      {
+        "type": "button",
+        "label": "7d",
+        "line": 263
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 362
+      },
+      {
+        "type": "button",
+        "label": "Check Alerts",
+        "line": 369
+      },
+      {
+        "type": "button",
+        "label": "Diagnose Equip",
+        "line": 377
+      },
+      {
+        "type": "button",
+        "label": "Generate Report",
+        "line": 384
+      },
+      {
+        "type": "input",
+        "label": "Search systems...",
+        "inputType": "text",
+        "placeholder": "Search systems...",
+        "line": 158
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "dashboard",
+        "href": "#",
+        "line": 102
+      },
+      {
+        "type": "link",
+        "label": "Task Board",
+        "href": "#",
+        "line": 107
+      },
+      {
+        "type": "link",
+        "label": "Equipment",
+        "href": "#",
+        "line": 112
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 135
+      },
+      {
+        "type": "link",
+        "label": "View Full Log →",
+        "href": "#",
+        "line": 354
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Maintenance Task",
+        "line": 124
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 148
+      },
+      {
+        "type": "button",
+        "label": "notifications",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "24h",
+        "line": 262
+      },
+      {
+        "type": "button",
+        "label": "7d",
+        "line": 263
+      },
+      {
+        "type": "button",
+        "label": "Create Task",
+        "line": 362
+      },
+      {
+        "type": "button",
+        "label": "Check Alerts",
+        "line": 369
+      },
+      {
+        "type": "button",
+        "label": "Diagnose Equip",
+        "line": 377
+      },
+      {
+        "type": "button",
+        "label": "Generate Report",
+        "line": 384
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search systems...",
+        "inputType": "text",
+        "placeholder": "Search systems...",
+        "line": 158
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 17,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
