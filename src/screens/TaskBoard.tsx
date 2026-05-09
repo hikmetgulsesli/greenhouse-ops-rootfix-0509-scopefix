@@ -141,7 +141,7 @@ export function TaskBoard(props: TaskBoardProps = {}) {
             </div>
             <button
               onClick={handleNewTask}
-              className="hidden sm:flex items-center gap-1 bg-primary text-on-primary px-3 py-1.5 rounded-full text-sm font-semibold hover:brightness-110 transition-all active:scale-[0.98] cursor-pointer"
+              className="hidden sm:flex items-center gap-1 bg-primary text-on-primary px-3 py-1.5 rounded-full text-sm font-semibold hover:brightness-110 transition-colors active:scale-[0.98] cursor-pointer"
             >
               <span className="material-symbols-outlined text-sm">add</span>
               New Task

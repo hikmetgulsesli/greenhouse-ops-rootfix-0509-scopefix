@@ -64,7 +64,7 @@ export function OperationalDashboard(props: OperationalDashboardProps = {}) {
               <h2 className="text-2xl md:text-3xl font-headline font-bold text-on-surface tracking-tight">System Status</h2>
               <p className="text-on-surface-variant mt-1 text-sm md:text-base">Real-time metrics for Greenhouse Sector 7G.</p>
             </div>
-            <div className="flex items-center gap-2 text-sm text-on-surface-variant bg-surface-container-low px-3 py-1.5 rounded-DEFAULT border border-outline-variant">
+            <div className="flex items-center gap-2 text-sm text-on-surface-variant bg-surface-container-low px-3 py-1.5 rounded-lg border border-outline-variant">
               <span className="material-symbols-outlined text-[16px] text-primary">update</span>
               Last updated: Just now
             </div>
@@ -174,13 +174,13 @@ export function OperationalDashboard(props: OperationalDashboardProps = {}) {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setChartPeriod("24h")}
-                    className={`px-3 py-1 text-xs font-semibold rounded-DEFAULT transition-colors cursor-pointer ${chartPeriod === "24h" ? "bg-primary-container text-on-primary-container" : "bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant"}`}
+                    className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${chartPeriod === "24h" ? "bg-primary-container text-on-primary-container" : "bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant"}`}
                   >
                     24h
                   </button>
                   <button
                     onClick={() => setChartPeriod("7d")}
-                    className={`px-3 py-1 text-xs font-semibold rounded-DEFAULT transition-colors cursor-pointer ${chartPeriod === "7d" ? "bg-primary-container text-on-primary-container" : "bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant"}`}
+                    className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${chartPeriod === "7d" ? "bg-primary-container text-on-primary-container" : "bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant"}`}
                   >
                     7d
                   </button>
@@ -240,7 +240,7 @@ export function OperationalDashboard(props: OperationalDashboardProps = {}) {
                     return (
                       <div
                         key={log.id}
-                        className={`flex items-start gap-3 p-3 rounded-DEFAULT hover:bg-surface-container-high transition-colors cursor-default border-l-2 border-transparent ${borderColor}`}
+                        className={`flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-default border-l-2 border-transparent ${borderColor}`}
                       >
                         <div className={`w-2 h-2 mt-1.5 rounded-full ${dotColor} shrink-0 shadow-[0_0_8px_rgba(255,180,171,0.6)]`}></div>
                         <div className="flex-1 min-w-0">
@@ -269,7 +269,7 @@ export function OperationalDashboard(props: OperationalDashboardProps = {}) {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <button
                   onClick={() => { if (onAction) onAction("new-task"); }}
-                  className="bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-200 active:scale-[0.98] focus:ring-2 focus:ring-primary focus:outline-none group cursor-pointer"
+                  className="bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-transform duration-200 active:scale-[0.98] focus:ring-2 focus:ring-primary focus:outline-none group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center group-hover:bg-primary-container/20 transition-colors">
                     <span className="material-symbols-outlined text-primary text-[24px]">add_task</span>
@@ -278,7 +278,7 @@ export function OperationalDashboard(props: OperationalDashboardProps = {}) {
                 </button>
                 <button
                   onClick={() => handleNav("equipment")}
-                  className="bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-200 active:scale-[0.98] focus:ring-2 focus:ring-error focus:outline-none group cursor-pointer"
+                  className="bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-transform duration-200 active:scale-[0.98] focus:ring-2 focus:ring-error focus:outline-none group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-full bg-error/10 flex items-center justify-center group-hover:bg-error/20 transition-colors relative">
                     <span className="material-symbols-outlined text-error text-[24px]">notification_important</span>
@@ -290,7 +290,7 @@ export function OperationalDashboard(props: OperationalDashboardProps = {}) {
                 </button>
                 <button
                   onClick={() => handleNav("equipment")}
-                  className="bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-200 active:scale-[0.98] focus:ring-2 focus:ring-secondary focus:outline-none group cursor-pointer"
+                  className="bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-transform duration-200 active:scale-[0.98] focus:ring-2 focus:ring-secondary focus:outline-none group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
                     <span className="material-symbols-outlined text-secondary text-[24px]">build</span>
@@ -299,7 +299,7 @@ export function OperationalDashboard(props: OperationalDashboardProps = {}) {
                 </button>
                 <button
                   onClick={() => handleNav("logs")}
-                  className="bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-200 active:scale-[0.98] focus:ring-2 focus:ring-tertiary focus:outline-none group cursor-pointer"
+                  className="bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-transform duration-200 active:scale-[0.98] focus:ring-2 focus:ring-tertiary focus:outline-none group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center group-hover:bg-tertiary/20 transition-colors">
                     <span className="material-symbols-outlined text-tertiary text-[24px]">summarize</span>

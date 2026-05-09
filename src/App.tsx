@@ -74,7 +74,7 @@ function AppShell({
         <div className="p-4">
           <button
             onClick={onNewTask}
-            className="w-full bg-primary text-on-primary py-2.5 px-4 rounded-DEFAULT font-semibold text-sm shadow-md hover:brightness-110 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full bg-primary text-on-primary py-2.5 px-4 rounded-lg font-semibold text-sm shadow-md hover:brightness-110 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-colors active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
           >
             <span className="material-symbols-outlined text-[18px]">add</span>
             New Maintenance Task
@@ -89,7 +89,7 @@ function AppShell({
                 setScreen(item.id);
                 setMobileMenuOpen(false);
               }}
-              className={`flex items-center gap-3 w-full text-left py-3 px-4 transition-all duration-200 active:scale-[0.98] rounded-DEFAULT cursor-pointer ${
+              className={`flex items-center gap-3 w-full text-left py-3 px-4 transition-colors duration-200 active:scale-[0.98] rounded-lg cursor-pointer ${
                 isActive(item.id)
                   ? "text-primary border-l-4 border-primary bg-secondary-container/20 font-bold"
                   : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high border-l-4 border-transparent"
@@ -113,7 +113,7 @@ function AppShell({
         <div className="p-4 mt-auto border-t border-outline-variant/30 space-y-1">
           <button
             onClick={() => setScreen("settings")}
-            className={`flex items-center gap-3 w-full text-left py-2 px-4 transition-colors hover:bg-surface-container-high duration-200 rounded-DEFAULT cursor-pointer ${
+            className={`flex items-center gap-3 w-full text-left py-2 px-4 transition-colors hover:bg-surface-container-high duration-200 rounded-lg cursor-pointer ${
               isActive("settings") ? "text-primary font-bold" : "text-on-surface-variant hover:text-on-surface"
             }`}
           >
@@ -147,7 +147,7 @@ function AppShell({
                 search
               </span>
               <input
-                className="bg-surface-container-low border border-outline-variant rounded-full py-1.5 pl-9 pr-4 text-sm text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all w-64"
+                className="bg-surface-container-low border border-outline-variant rounded-full py-1.5 pl-9 pr-4 text-sm text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors w-64"
                 placeholder="Search systems..."
                 type="text"
                 value={state.searchQuery}

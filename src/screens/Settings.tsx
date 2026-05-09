@@ -89,7 +89,7 @@ export function Settings(props: SettingsProps = {}) {
           </div>
         </div>
         <div className="p-4">
-          <button className="w-full bg-primary text-on-primary py-2.5 px-4 rounded-DEFAULT font-semibold text-sm shadow-md hover:brightness-110 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+          <button className="w-full bg-primary text-on-primary py-2.5 px-4 rounded-lg font-semibold text-sm shadow-md hover:brightness-110 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-colors active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
             <span className="material-symbols-outlined text-[18px]">add</span>
             New Maintenance Task
           </button>

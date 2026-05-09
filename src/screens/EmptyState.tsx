@@ -39,7 +39,7 @@ export function EmptyState(props: EmptyStateProps = {}) {
         <div className="px-4 mb-6">
           <button
             onClick={handleNewTask}
-            className="w-full bg-primary text-on-primary font-bold py-2.5 px-4 rounded-full flex items-center justify-center space-x-2 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-low transition-all active:scale-[0.98] cursor-pointer"
+            className="w-full bg-primary text-on-primary font-bold py-2.5 px-4 rounded-full flex items-center justify-center space-x-2 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-low transition-colors active:scale-[0.98] cursor-pointer"
           >
             <span className="material-symbols-outlined text-sm">add</span>
             <span>New Maintenance Task</span>
@@ -104,7 +104,7 @@ export function EmptyState(props: EmptyStateProps = {}) {
               <div className="relative hidden sm:block mr-2">
                 <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
                 <input
-                  className="bg-surface-container-high border border-outline-variant text-on-surface text-sm rounded-full pl-9 pr-4 py-1.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-48 transition-all"
+                  className="bg-surface-container-high border border-outline-variant text-on-surface text-sm rounded-full pl-9 pr-4 py-1.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-48 transition-colors"
                   placeholder="Search..."
                   type="text"
                   readOnly
@@ -143,7 +143,7 @@ export function EmptyState(props: EmptyStateProps = {}) {
             {/* Primary Action */}
             <button
               onClick={handleNewTask}
-              className="bg-primary text-on-primary font-headline font-bold py-3 px-8 rounded-full flex items-center justify-center space-x-2 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all active:scale-[0.98] cursor-pointer"
+              className="bg-primary text-on-primary font-headline font-bold py-3 px-8 rounded-full flex items-center justify-center space-x-2 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-colors active:scale-[0.98] cursor-pointer"
             >
               <span className="material-symbols-outlined text-lg">add_circle</span>
               <span>Create New Task</span>

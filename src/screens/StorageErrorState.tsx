@@ -124,7 +124,7 @@ export function StorageErrorState(props: StorageErrorStateProps = {}) {
             <div className="flex flex-col sm:flex-row gap-4 w-full justify-center mt-auto">
               <button
                 onClick={handleClearStorage}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border border-outline-variant rounded-full text-on-surface font-label font-medium hover:bg-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background transition-all duration-200 cursor-pointer"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border border-outline-variant rounded-full text-on-surface font-label font-medium hover:bg-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background transition-colors duration-200 cursor-pointer"
                 aria-label="Clear local storage"
               >
                 <span className="material-symbols-outlined text-[18px]">delete_sweep</span>
@@ -132,7 +132,7 @@ export function StorageErrorState(props: StorageErrorStateProps = {}) {
               </button>
               <button
                 onClick={handleRetry}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary-container text-on-primary-container rounded-full font-label font-bold hover:bg-primary hover:text-on-primary focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background shadow-lg shadow-primary-container/20 transition-all duration-200 group cursor-pointer"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary-container text-on-primary-container rounded-full font-label font-bold hover:bg-primary hover:text-on-primary focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background shadow-lg shadow-primary-container/20 transition-colors duration-200 group cursor-pointer"
                 aria-label="Retry storage sync"
               >
                 <span className="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-500">sync</span>
