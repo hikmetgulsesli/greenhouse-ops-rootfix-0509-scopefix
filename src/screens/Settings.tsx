@@ -24,7 +24,7 @@ export interface SettingsProps {
 }
 
 export function Settings(props: SettingsProps = {}) {
-  const { onClose, onBack, onUpdateSettings, state } = props;
+  const { onClose, onBack, onUpdateSettings, state, onNavigate } = props;
   const settings = state?.settings;
 
   const [theme, setTheme] = useState<AppSettings['theme']>(settings?.theme ?? 'dark');
