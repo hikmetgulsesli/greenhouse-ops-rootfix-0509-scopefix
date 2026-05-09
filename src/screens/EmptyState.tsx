@@ -13,7 +13,7 @@ export interface EmptyStateProps {
 }
 
 export function EmptyState(props: EmptyStateProps = {}) {
-  const { onAction, onNavigate } = props;
+  const { onAction, onNavigate, onClose, onBack } = props;
 
   const handleNewTask = () => {
     if (onAction) onAction("new-task");
@@ -21,6 +21,10 @@ export function EmptyState(props: EmptyStateProps = {}) {
 
   const handleNav = (screen: string) => {
     if (onNavigate) onNavigate(undefined, screen);
+  };
+
+  const handleMenu = () => {
+    if (onNavigate) onNavigate(undefined, "dashboard");
   };
 
   return (
@@ -92,7 +96,7 @@ export function EmptyState(props: EmptyStateProps = {}) {
         <header className="w-full top-0 sticky z-40 bg-background/95 backdrop-blur-md border-b border-outline-variant">
           <div className="flex justify-between items-center h-16 px-6">
             <div className="md:hidden flex items-center">
-              <button className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80" aria-label="Open menu">
+              <button onClick={handleMenu} className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80" aria-label="Open menu">
                 <span className="material-symbols-outlined">menu</span>
               </button>
               <span className="ml-4 font-headline text-lg font-semibold text-primary">Greenhouse Ops</span>
