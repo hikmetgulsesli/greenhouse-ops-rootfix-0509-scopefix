@@ -1,6 +1,6 @@
 // AUTO-GENERATED from Stitch HTML — preserve visual intent, refine when needed
 // Screen: Profile Panel
-// 
+//
 // AGENT INSTRUCTIONS:
 // 1. Treat this as a design scaffold, not untouchable product code.
 // 2. Preserve the Stitch visual intent, spacing, hierarchy, and controls.
@@ -23,7 +23,7 @@ export interface ProfilePanelProps {
 }
 
 export function ProfilePanel(props: ProfilePanelProps = {}) {
-  const { onClose, onNavigate } = props;
+  const { onClose, onAction, state } = props;
   const [activeTab, setActiveTab] = useState<'profile' | 'security' | 'preferences' | 'notifications'>('profile');
 
   const tabs: { id: typeof activeTab; label: string; icon: string }[] = [
@@ -32,6 +32,9 @@ export function ProfilePanel(props: ProfilePanelProps = {}) {
     { id: 'preferences', label: 'Preferences', icon: 'tune' },
     { id: 'notifications', label: 'Notifications', icon: 'notifications' },
   ];
+
+  const unreadCount = state?.notifications.filter((n) => !n.read).length ?? 0;
+  const readCount = state?.notifications.filter((n) => n.read).length ?? 0;
 
   return (
     <>
@@ -94,6 +97,151 @@ export function ProfilePanel(props: ProfilePanelProps = {}) {
             </button>
           ))}
         </nav>
+
+        {/* Tab Content */}
+        <div className="flex-1 overflow-y-auto px-2 py-2">
+          {activeTab === 'profile' && (
+            <div className="space-y-4">
+              <div className="bg-surface-container rounded-lg p-4 border border-outline-variant/50">
+                <h3 className="font-headline font-semibold text-sm text-on-surface mb-3">Operator Details</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-on-surface-variant">Name</span>
+                    <span className="text-on-surface font-medium">Marcus Johnson</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-on-surface-variant">Role</span>
+                    <span className="text-on-surface font-medium">Senior Technician</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-on-surface-variant">Zone</span>
+                    <span className="text-on-surface font-medium">Zone B / Sector 4</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-on-surface-variant">Shift</span>
+                    <span className="text-on-surface font-medium">Day (06:00 - 14:00)</span>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-surface-container rounded-lg p-4 border border-outline-variant/50">
+                <h3 className="font-headline font-semibold text-sm text-on-surface mb-3">Activity Summary</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="text-center p-2 bg-surface-container-low rounded-lg">
+                    <span className="block text-2xl font-bold text-primary">{state?.tasks.filter(t => t.status === 'completed').length ?? 0}</span>
+                    <span className="text-xs text-on-surface-variant">Tasks Done</span>
+                  </div>
+                  <div className="text-center p-2 bg-surface-container-low rounded-lg">
+                    <span className="block text-2xl font-bold text-primary">{state?.logs.length ?? 0}</span>
+                    <span className="text-xs text-on-surface-variant">Log Entries</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'security' && (
+            <div className="space-y-4">
+              <div className="bg-surface-container rounded-lg p-4 border border-outline-variant/50">
+                <h3 className="font-headline font-semibold text-sm text-on-surface mb-3">Security Status</h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+                    <span className="text-on-surface">Two-factor authentication enabled</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="material-symbols-outlined text-tertiary text-[18px]">lock</span>
+                    <span className="text-on-surface">Last password change: 15 days ago</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="material-symbols-outlined text-tertiary text-[18px]">devices</span>
+                    <span className="text-on-surface">Active sessions: 2 devices</span>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => onAction?.('change-password')}
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-primary-container text-on-primary-container rounded-lg transition-colors font-medium text-sm hover:bg-primary-container/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-[18px]">key</span>
+                Change Password
+              </button>
+            </div>
+          )}
+
+          {activeTab === 'preferences' && (
+            <div className="space-y-4">
+              <div className="bg-surface-container rounded-lg p-4 border border-outline-variant/50">
+                <h3 className="font-headline font-semibold text-sm text-on-surface mb-3">Display Preferences</h3>
+                <div className="space-y-3">
+                  <label className="flex items-center justify-between cursor-pointer">
+                    <span className="text-sm text-on-surface">Compact View</span>
+                    <input type="checkbox" className="form-checkbox h-4 w-4 text-primary rounded cursor-pointer" />
+                  </label>
+                  <label className="flex items-center justify-between cursor-pointer">
+                    <span className="text-sm text-on-surface">Show Tooltips</span>
+                    <input type="checkbox" defaultChecked className="form-checkbox h-4 w-4 text-primary rounded cursor-pointer" />
+                  </label>
+                  <label className="flex items-center justify-between cursor-pointer">
+                    <span className="text-sm text-on-surface">Auto-refresh Data</span>
+                    <input type="checkbox" defaultChecked className="form-checkbox h-4 w-4 text-primary rounded cursor-pointer" />
+                  </label>
+                </div>
+              </div>
+              <div className="bg-surface-container rounded-lg p-4 border border-outline-variant/50">
+                <h3 className="font-headline font-semibold text-sm text-on-surface mb-3">Language & Region</h3>
+                <div className="space-y-2">
+                  <div>
+                    <label className="block text-xs text-on-surface-variant mb-1">Language</label>
+                    <select className="w-full bg-surface-container-highest border border-outline-variant text-on-surface text-sm rounded p-2 cursor-pointer">
+                      <option>English</option>
+                      <option>Turkish</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs text-on-surface-variant mb-1">Time Format</label>
+                    <select className="w-full bg-surface-container-highest border border-outline-variant text-on-surface text-sm rounded p-2 cursor-pointer">
+                      <option>24-hour</option>
+                      <option>12-hour</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'notifications' && (
+            <div className="space-y-4">
+              <div className="bg-surface-container rounded-lg p-4 border border-outline-variant/50">
+                <h3 className="font-headline font-semibold text-sm text-on-surface mb-3">Notification Summary</h3>
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="text-center p-2 bg-surface-container-low rounded-lg">
+                    <span className="block text-2xl font-bold text-error">{unreadCount}</span>
+                    <span className="text-xs text-on-surface-variant">Unread</span>
+                  </div>
+                  <div className="text-center p-2 bg-surface-container-low rounded-lg">
+                    <span className="block text-2xl font-bold text-tertiary">{readCount}</span>
+                    <span className="text-xs text-on-surface-variant">Read</span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="flex items-center justify-between cursor-pointer">
+                    <span className="text-sm text-on-surface">Critical Alerts</span>
+                    <input type="checkbox" defaultChecked className="form-checkbox h-4 w-4 text-primary rounded cursor-pointer" />
+                  </label>
+                  <label className="flex items-center justify-between cursor-pointer">
+                    <span className="text-sm text-on-surface">Task Reminders</span>
+                    <input type="checkbox" defaultChecked className="form-checkbox h-4 w-4 text-primary rounded cursor-pointer" />
+                  </label>
+                  <label className="flex items-center justify-between cursor-pointer">
+                    <span className="text-sm text-on-surface">System Updates</span>
+                    <input type="checkbox" className="form-checkbox h-4 w-4 text-primary rounded cursor-pointer" />
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* Footer Actions */}
         <div className="mt-auto pt-6 border-t border-outline-variant/50 px-2 pb-2">
           <button
