@@ -146,10 +146,18 @@ export function TaskBoard(props: TaskBoardProps = {}) {
               <span className="material-symbols-outlined text-sm">add</span>
               New Task
             </button>
-            <button className="p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors cursor-pointer active:opacity-80" aria-label="Notifications">
+            <button
+              onClick={() => handleNav("tasks")}
+              className="p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors cursor-pointer active:opacity-80"
+              aria-label="Notifications"
+            >
               <span className="material-symbols-outlined">notifications</span>
             </button>
-            <button className="p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors cursor-pointer active:opacity-80" aria-label="Profile">
+            <button
+              onClick={() => handleNav("tasks")}
+              className="p-2 text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors cursor-pointer active:opacity-80"
+              aria-label="Profile"
+            >
               <span className="material-symbols-outlined">account_circle</span>
             </button>
           </div>
@@ -204,6 +212,7 @@ export function TaskBoard(props: TaskBoardProps = {}) {
                           {!isCompleted && (
                             <div className="relative group">
                               <button
+                                onClick={() => handleNav("tasks")}
                                 className="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container-highest cursor-pointer"
                                 aria-label="Task options"
                               >

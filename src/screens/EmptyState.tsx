@@ -110,10 +110,18 @@ export function EmptyState(props: EmptyStateProps = {}) {
                   readOnly
                 />
               </div>
-              <button className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80 flex items-center justify-center" aria-label="Notifications">
+              <button
+                onClick={() => handleNav("settings")}
+                className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80 flex items-center justify-center"
+                aria-label="Notifications"
+              >
                 <span className="material-symbols-outlined">notifications</span>
               </button>
-              <button className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80 flex items-center justify-center relative" aria-label="User profile">
+              <button
+                onClick={() => handleNav("settings")}
+                className="text-on-surface-variant hover:bg-surface-container-highest rounded-full transition-colors p-2 cursor-pointer active:opacity-80 flex items-center justify-center relative"
+                aria-label="User profile"
+              >
                 <span className="material-symbols-outlined">account_circle</span>
                 <span className="sr-only">User Profile</span>
               </button>

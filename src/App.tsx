@@ -157,6 +157,7 @@ function AppShell({
               />
             </div>
             <button
+              onClick={() => setProfileOpen(true)}
               className="text-on-surface-variant hover:bg-surface-container-highest p-2 rounded-full transition-colors cursor-pointer active:opacity-80 relative"
               aria-label="Notifications"
             >
@@ -282,7 +283,10 @@ function AppShell({
             </button>
           </div>
           <nav className="flex-1 flex flex-col space-y-1 font-body text-body-md text-primary">
-            <button className="flex items-center gap-4 py-3 px-4 bg-primary-container text-on-primary-container rounded-lg mx-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high font-medium text-left cursor-pointer">
+            <button
+              onClick={() => setProfileOpen(false)}
+              className="flex items-center gap-4 py-3 px-4 bg-primary-container text-on-primary-container rounded-lg mx-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high font-medium text-left cursor-pointer"
+            >
               <span
                 className="material-symbols-outlined"
                 style={{ fontVariationSettings: "'FILL' 1" }}
@@ -291,21 +295,33 @@ function AppShell({
               </span>
               Profile
             </button>
-            <button className="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high text-left cursor-pointer">
+            <button
+              onClick={() => setProfileOpen(false)}
+              className="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high text-left cursor-pointer"
+            >
               <span className="material-symbols-outlined">security</span>
               Security
             </button>
-            <button className="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high text-left cursor-pointer">
+            <button
+              onClick={() => setProfileOpen(false)}
+              className="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high text-left cursor-pointer"
+            >
               <span className="material-symbols-outlined">tune</span>
               Preferences
             </button>
-            <button className="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high text-left cursor-pointer">
+            <button
+              onClick={() => setProfileOpen(false)}
+              className="flex items-center gap-4 py-3 px-4 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest mx-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-high text-left cursor-pointer"
+            >
               <span className="material-symbols-outlined">notifications</span>
               Notifications
             </button>
           </nav>
           <div className="mt-auto pt-6 border-t border-outline-variant/50 px-2 pb-2">
-            <button className="w-full flex items-center justify-center gap-2 py-3 px-4 text-error bg-error-container/10 border border-error/20 hover:bg-error-container/20 rounded-lg transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-error focus:ring-offset-2 focus:ring-offset-surface-container-high cursor-pointer">
+            <button
+              onClick={() => setProfileOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 text-error bg-error-container/10 border border-error/20 hover:bg-error-container/20 rounded-lg transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-error focus:ring-offset-2 focus:ring-offset-surface-container-high cursor-pointer"
+            >
               <span className="material-symbols-outlined text-[20px]">logout</span>
               Logout
             </button>
